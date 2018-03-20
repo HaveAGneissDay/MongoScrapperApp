@@ -1,0 +1,1 @@
+// This model fetches a new article
