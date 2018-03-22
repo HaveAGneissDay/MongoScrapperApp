@@ -1,10 +1,11 @@
 //Where Scrape happens
 
-
+//require packages
+const cheerio = require('cheerio');
 
 
 //Make the request to BBC
-request("http://www.bbc.com/news", function (error, response, html) {
+module.exports = request("http://www.bbc.com/news", function (error, response, html) {
     if (error) {
         console.log("ERROR: " + error);
 
@@ -35,3 +36,5 @@ request("http://www.bbc.com/news", function (error, response, html) {
         console.log(results);
     }
 });
+
+module.exports = 
