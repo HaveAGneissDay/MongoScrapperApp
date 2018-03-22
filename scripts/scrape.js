@@ -36,5 +36,3 @@ module.exports = request("http://www.bbc.com/news", function (error, response, h
         console.log(results);
     }
 });
-
-module.exports = 
