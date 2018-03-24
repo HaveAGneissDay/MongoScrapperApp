@@ -23,9 +23,10 @@ app.set('view engine', 'handlebars');
 // Import routes and give the server access to them
 const routes = require('./routes/api/apiroutes.js');
 
-app.use('/', routes);
+app.use('index.js', routes);
 
-
+router.use(api);
+router.use(views);
 
 
 //Make sure the app is listening
@@ -35,12 +36,12 @@ app.listen(PORT, function() {
 
 
 
-// // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-// // Set mongoose to leverage built in JavaScript ES6 Promises
-// // Connect to the Mongo DB
-// mongoose.Promise = Promise;
-// mongoose.connect(MONGODB_URI, {
-//     useMongoClient: true
-// });
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+    useMongoClient: true
+});
