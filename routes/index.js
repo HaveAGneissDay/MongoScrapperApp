@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const home = require('./home/home');
+const home = require('./articles');
 const albums = require('./albums/albums');
 const reviews = require('./reviews/reviews');
 const users = require('./users/users');

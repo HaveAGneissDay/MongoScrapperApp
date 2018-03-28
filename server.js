@@ -37,8 +37,17 @@ app.listen(PORT, function() {
 
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
+//connect mongoose to our database
+mongoose.connect(db, function (error) {
+    if (error) {
+        console.log(error);
+    }
+    else {
+        console.log('mongoose connection is successful');
+    }
+});
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;

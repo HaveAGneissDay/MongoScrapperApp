@@ -2,7 +2,8 @@
 
 const mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
+
+var Schema = mongoose.noteSchema;
 
 var noteSchema = new Schema({
     text: {
