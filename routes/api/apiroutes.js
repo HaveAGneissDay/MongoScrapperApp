@@ -1,6 +1,7 @@
 //API routes
+//Handles API routes
+
 //Need packages
-// dependencies
 const express = require('express');
 const router = express.Router();
 //we combined article and note into one file
