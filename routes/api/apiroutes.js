@@ -1,9 +1,15 @@
 //API routes
 //Need packages
-const path = require('path');
+// dependencies
+const express = require('express');
+const router = express.Router();
+//we combined article and note into one file
+const Combined = require('../models/index.js');
+
+const scraper = require('../controller/scraper');
 
 app.get('/articles', function (req, res) {
-    Article.find({}, function (err, doc) {
+    Combined.find({}, function (err, doc) {
         if (err) {
             console.log(err);
         } else {
@@ -13,7 +19,7 @@ app.get('/articles', function (req, res) {
 });
 
 app.get('/articles/:id', function (req, res) {
-    Article.findOne({ '_id': req.params.id })
+    Combined.findOne({ '_id': req.params.id })
         .populate('note')
         .exec(function (err, doc) {
             if (err) {
@@ -31,7 +37,7 @@ app.post('/articles/:id', function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            Article.findOneAndUpdate({ '_id': req.params.id }, { 'note': doc._id })
+            Combined.findOneAndUpdate({ '_id': req.params.id }, { 'note': doc._id })
                 .exec(function (err, doc) {
                     if (err) {
                         console.log(err);
