@@ -6,7 +6,7 @@ const router = express.Router();
 //we combined article and note into one file
 const Combined = require('../models/index.js');
 
-const scraper = require('../controller/scraper');
+const scraper = require('../scripts/scrape.js');
 
 app.get('/articles', function (req, res) {
     Combined.find({}, function (err, doc) {
