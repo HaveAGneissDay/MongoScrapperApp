@@ -4,7 +4,5 @@ const Router = express.Router();
 
 var headline = require('../models/Headline.js');
 
-//app.get
 
-//app.put
 
